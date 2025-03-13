@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer type="module"></script>
+  </head>
+  <body>
+    <form>
+      <section id="form-one">
+        <section class="form-input">
+          <label for="userName">Name</label>
+          <input
+            type="text"
+            id="userName"
+            name="userName"
+            class="user-input"
+            required
+          />
+        </section>
+        <section class="form-input">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input
+            type="date"
+            id="dateOfBirth"
+            name="dateOfBirth"
+            class="user-input"
+            required
+          />
+        </section>
+        <section class="form-input user-inputs">
+          <span>Gender :</span>
+          <label for="male">Male</label>
+          <input
+            type="radio"
+            id="male"
+            name="gender"
+            value="male"
+            class="user-input"
+            required
+          />
+          <label for="female">female</label>
+          <input
+            type="radio"
+            id="female"
+            name="gender"
+            value="female"
+            class="user-input"
+            required
+          />
+        </section>
+      </section>
+      <section id="form-two">
+        <section class="form-input">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required />
+        </section>
+      </section>
+      <section class="navigation-btns">
+        <input type="button" value="Back" id="back" />
+        <input type="button" value="Next" id="next" />
+      </section>
+    </form>
+  </body>
+</html>
