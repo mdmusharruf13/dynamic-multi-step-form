@@ -23,3 +23,24 @@ export function enableBtn(btn) {
         btn.removeAttribute("disabled");
     }
 }
+
+export function generateSummary(elementId, formObj) {
+    const summary = document.getElementById(elementId);
+    summary.innerHTML = "";
+
+    const heading = document.createElement('h2');
+    heading.innerText = "Details Summary"
+
+    const newSection = document.createElement('section');
+    const list = document.createElement('ul');
+
+    for (let [key, value] of formObj) {
+        const item = document.createElement('li');
+        item.innerHTML = `<b>${key}</b>` + ": " + value;
+        list.append(item);
+    }
+
+    newSection.append(list);
+    summary.append(heading);
+    summary.append(newSection);
+}

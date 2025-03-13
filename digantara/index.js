@@ -1,4 +1,4 @@
-import { disableBtn, enableBtn, showPage } from "./utils/helper.js";
+import { disableBtn, enableBtn, generateSummary, showPage } from "./utils/helper.js";
 
 const formObj = new Map();
 
@@ -26,6 +26,7 @@ const backBtn = document.getElementById("back");
 nextBtn.addEventListener("click", () => {
     if (currentPage + 1 == pages.length - 1) {
         nextBtn.value = "Submit";
+        generateSummary("summary", formObj);
     }
     if (currentPage + 1 < pages.length) {
         showCurrentPage(++currentPage);
