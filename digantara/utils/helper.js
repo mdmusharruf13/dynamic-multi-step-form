@@ -11,3 +11,15 @@ export function showPage(className) {
         elements[currentPage].style.display = "block";
     }
 }
+
+export function disableBtn(btn) {
+    if (btn) {
+        btn.setAttribute("disabled", true);
+    }
+}
+
+export function enableBtn(btn) {
+    if (btn) {
+        btn.removeAttribute("disabled");
+    }
+}
