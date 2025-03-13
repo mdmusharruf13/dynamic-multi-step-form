@@ -1,13 +1,6 @@
 import { disableBtn, enableBtn, showPage } from "./utils/helper.js";
 
-export const formObj = {
-    userName: '',
-    dateOfBirth: '',
-    gender: '',
-    email: '',
-    phone: '',
-    address: ''
-}
+const formObj = new Map();
 
 let pages = [];
 let currentPage = 0;
@@ -16,7 +9,7 @@ let currentPage = 0;
 function handleInputChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    formObj[name] = value;
+    formObj.set(name, value);
     console.log(formObj);
 }
 
