@@ -48,10 +48,9 @@ export function generateSummary(elementId, formObj) {
 export function validateInput(input, infoElement) {
     let isValid = true;
     const { type, value, name } = input;
-    console.log(type, value, name, value.length);
 
     if (type === 'text' && value.length < 3) {
-        if (infoElement) infoElement.innerText = "Name must have atleast three characters";
+        if (infoElement) infoElement.innerText = "must have atleast three characters";
         isValid = false;
     }
     else if (type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
@@ -68,7 +67,6 @@ export function validateInput(input, infoElement) {
     }
     else if (type === "radio") {
         const radioGroup = document.getElementsByName(name);
-        console.log(radioGroup);
         if (![...radioGroup].some(radio => radio.checked)) {
             if (infoElement) infoElement.innerText = "Please select your gender";
             isValid = false;

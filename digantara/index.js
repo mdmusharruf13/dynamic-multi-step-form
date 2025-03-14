@@ -1,4 +1,4 @@
-import { disableBtn, enableBtn, generateSummary, showPage } from "./utils/helper.js";
+import { disableBtn, enableBtn, generateSummary, showPage, validateInput } from "./utils/helper.js";
 
 const formObj = new Map();
 
@@ -6,28 +6,30 @@ let pages = [];
 let currentPage = 0;
 
 function validateForm(currPage) {
-    const values = [...formObj.values()];
-    let length = 0;
-    for (let key of values) {
-        console.log("first", key, key.length);
-        key.length ? length++ : null;
+    let isALLValid = [];
+    const pages = document.querySelectorAll(".pages");
+    const inputElements = pages[currPage].querySelectorAll(".user-input");
+
+    for (let input of inputElements) {
+        const spanElement = input.parentElement.querySelector(".info");
+        spanElement.style.color = "red";
+
+        const isValid = validateInput(input, spanElement);
+        isALLValid.push(isValid);
+
+        setTimeout(() => {
+            spanElement.innerText = ""
+        }, 5000);
+
+        isALLValid.push(true);
     }
-    console.log("total length: ", length);
-    if (currPage === 0 && length >= 3) {
-        return true;
-    } else if (currPage === 1 && length === 6) {
-        return true;
-    } else {
-        alert("please fill all input fields")
-        return false;
-    }
+
+    return isALLValid.every(val => val);
 }
 
 function handleInputChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name, value } = event.target;
     formObj.set(name, value);
-    console.log(formObj);
 }
 
 function handleAttachEventListener(element) {
@@ -68,17 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputField = document.getElementsByClassName("user-input");
     for (let i = 0; i < inputField.length; i++) {
         handleAttachEventListener(inputField[i]);
+        formObj.set(inputField[i].name, "");
     }
     inputField[0].focus();
 
     const pagesSection = document.querySelectorAll(".pages");
-    pagesSection.forEach((ele, index) => pages.push(index));
+    pagesSection.forEach((section, index) => {
+        pages.push(index);
+        section.style.display = "none";
+    });
 
-    const formTwo = document.getElementById("form-two");
-    const summary = document.getElementById("summary");
-
-    formTwo.style.display = "none";
-    summary.style.display = "none";
+    pagesSection[0].style.display = "block";
 
     showCurrentPage = showPage("pages");
     showCurrentPage(currentPage);
