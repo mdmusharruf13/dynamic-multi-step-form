@@ -5,6 +5,23 @@ const formObj = new Map();
 let pages = [];
 let currentPage = 0;
 
+function validateForm(currPage) {
+    const values = [...formObj.values()];
+    let length = 0;
+    for (let key of values) {
+        console.log("first", key, key.length);
+        key.length ? length++ : null;
+    }
+    console.log("total length: ", length);
+    if (currPage === 0 && length >= 3) {
+        return true;
+    } else if (currPage === 1 && length === 6) {
+        return true;
+    } else {
+        alert("please fill all input fields")
+        return false;
+    }
+}
 
 function handleInputChange(event) {
     const name = event.target.name;
@@ -24,6 +41,9 @@ const backBtn = document.getElementById("back");
 
 
 nextBtn.addEventListener("click", () => {
+    if (!validateForm(currentPage)) {
+        return;
+    }
     if (currentPage + 1 == pages.length - 1) {
         nextBtn.value = "Submit";
         generateSummary("summary", formObj);
@@ -49,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < inputField.length; i++) {
         handleAttachEventListener(inputField[i]);
     }
+    inputField[0].focus();
 
     const pagesSection = document.querySelectorAll(".pages");
     pagesSection.forEach((ele, index) => pages.push(index));
