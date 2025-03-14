@@ -40,7 +40,15 @@ let showCurrentPage = null;
 
 const nextBtn = document.getElementById("next");
 const backBtn = document.getElementById("back");
+const editBtn = document.getElementById("edit");
 
+editBtn.addEventListener("click", () => {
+    event.preventDefault();
+    nextBtn.value = "Next";
+    disableBtn(backBtn);
+    currentPage = 0;
+    showCurrentPage(currentPage);
+});
 
 nextBtn.addEventListener("click", () => {
     if (!validateForm(currentPage)) {
