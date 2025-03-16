@@ -81,7 +81,7 @@ export function getNearestElement(element, value) {
 
     if (element) {
         const tempElement = element.querySelector(value);
-        console.log("count", element, tempElement);
+        // console.log("count", element, tempElement);
 
         if (!tempElement) {
             currentElement = getNearestElement(element.parentElement, value);

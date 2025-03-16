@@ -1,4 +1,4 @@
-import { disableBtn, enableBtn, generateSummary, showPage, validateInput } from "./utils/helper.js";
+import { disableBtn, enableBtn, generateSummary, getNearestElement, showPage, validateInput } from "./utils/helper.js";
 
 const formObj = new Map();
 
@@ -11,15 +11,23 @@ function validateForm(currPage) {
     const inputElements = pages[currPage].querySelectorAll(".user-input");
 
     for (let input of inputElements) {
-        const spanElement = input.parentElement.querySelector(".info");
-        spanElement.style.color = "red";
+        const spanElement = getNearestElement(input, ".info");
 
-        const isValid = validateInput(input, spanElement);
+        const isValid = validateInput(input, spanElement || null);
         isALLValid.push(isValid);
 
-        setTimeout(() => {
-            spanElement.innerText = ""
-        }, 5000);
+        if (spanElement && !isValid) {
+            spanElement.style.color = "red";
+            spanElement.style.visibility = "visible";
+        }
+        if (isValid) spanElement.style.visibility = "hidden";
+
+        if (!isValid) {
+            setTimeout(() => {
+                spanElement.style.visibility = "hidden";
+                console.log(spanElement);
+            }, 5000);
+        }
 
         isALLValid.push(true);
     }
