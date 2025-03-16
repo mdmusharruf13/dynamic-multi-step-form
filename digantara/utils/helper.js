@@ -75,3 +75,18 @@ export function validateInput(input, infoElement) {
 
     return isValid;
 }
+
+export function getNearestElement(element, value) {
+    let currentElement = null;
+
+    if (element) {
+        const tempElement = element.querySelector(value);
+        console.log("count", element, tempElement);
+
+        if (!tempElement) {
+            currentElement = getNearestElement(element.parentElement, value);
+        } else currentElement = tempElement;
+    }
+
+    return currentElement;
+}
