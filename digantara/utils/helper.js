@@ -25,24 +25,27 @@ export function enableBtn(btn) {
 }
 
 export function generateSummary(elementId, formObj) {
-    const summary = document.getElementById(elementId);
-    summary.innerHTML = "";
+    const summaryElement = document.getElementById(elementId);
+    summaryElement.innerHTML = "";
 
-    const heading = document.createElement('h2');
-    heading.innerText = "Details Summary"
-
-    const newSection = document.createElement('section');
-    const list = document.createElement('ul');
+    const tableElement = document.createElement("table");
+    tableElement.setAttribute("align", "left");
 
     for (let [key, value] of formObj) {
-        const item = document.createElement('li');
-        item.innerHTML = `<b>${key}</b>` + ": " + value;
-        list.append(item);
+        const tableRow = document.createElement("tr");
+        const rowHeading = document.createElement("th")
+        const rowData = document.createElement("td");
+
+        rowHeading.innerText = key;
+        rowData.innerText = value;
+
+        tableRow.append(rowHeading);
+        tableRow.append(rowData);
+
+        tableElement.append(tableRow);
     }
 
-    newSection.append(list);
-    summary.append(heading);
-    summary.append(newSection);
+    summaryElement.append(tableElement);
 }
 
 export function validateInput(input, infoElement) {
