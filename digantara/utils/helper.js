@@ -93,3 +93,11 @@ export function getNearestElement(element, value) {
 
     return currentElement;
 }
+
+export function updateProgress(progressBar) {
+    const progress = document.querySelector(progressBar);
+
+    return (progressValue) => {
+        progress.style.width = `${progressValue}%`;
+    }
+}

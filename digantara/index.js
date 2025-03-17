@@ -1,9 +1,11 @@
-import { disableBtn, enableBtn, generateSummary, getNearestElement, showPage, validateInput } from "./utils/helper.js";
+import { disableBtn, enableBtn, generateSummary, getNearestElement, showPage, updateProgress, validateInput } from "./utils/helper.js";
 
 const formObj = new Map();
 
 let pages = [];
 let currentPage = 0;
+
+const updateProgressBar = updateProgress(".progress-bar");
 
 function validateForm(currPage) {
     let isALLValid = [];
@@ -35,9 +37,19 @@ function validateForm(currPage) {
     return isALLValid.every(val => val);
 }
 
+
+
 function handleInputChange(event) {
     const { name, value } = event.target;
-    formObj.set(name, value);
+    formObj.set(name, value || "");
+
+    let values = [...formObj.values()];
+    const totalFields = values.length;
+    const singleProgressPercentage = Math.abs(100 / totalFields);
+
+    const filledFields = (values.filter(val => val.trim() !== "")).length;
+
+    updateProgressBar(singleProgressPercentage * filledFields);
 }
 
 function handleAttachEventListener(element) {
