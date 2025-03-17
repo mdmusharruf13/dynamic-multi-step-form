@@ -102,6 +102,14 @@ input:not([type="radio"]) {
   border-radius: 5px;
 }
 
+input:is([type="radio"], [type="date"]) {
+  cursor: pointer;
+}
+
+.radio-label {
+  cursor: pointer;
+}
+
 :is(input[type="button"], .btn) {
   padding: 8px 16px;
   font-size: 16px;
