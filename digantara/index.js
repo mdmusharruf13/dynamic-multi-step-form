@@ -74,6 +74,19 @@ nextBtn.addEventListener("click", () => {
     if (!validateForm(currentPage)) {
         return;
     }
+    console.log(currentPage, pages.length);
+    if (currentPage + 1 == pages.length) {
+        const submit = confirm("Do you want to submit the form ?");
+        if (!submit) {
+            return;
+        }
+
+        for (let [key] of formObj) {
+            formObj.set(key, "");
+        }
+        window.location.reload();
+
+    }
     if (currentPage + 1 == pages.length - 1) {
         nextBtn.value = "Submit";
         generateSummary("summary", formObj);

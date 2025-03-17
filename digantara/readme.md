@@ -1,6 +1,6 @@
 # Dynamic Multi-Step Form
 
-## Check deployed project live [Link]()
+## Check deployed project live [Link](https://dynamic-multi-step-form.netlify.app/)
 
 This project implements a dynamic, three-step multi-step form using vanilla JavaScript, HTML, and CSS.
 
