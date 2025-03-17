@@ -1,100 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <script src="index.js" defer type="module"></script>
   </head>
   <body>
-    <form class="form">
-      <section id="form-one" class="pages">
-        <section class="form-input">
-          <label for="userName">Name</label>
-          <input
-            type="text"
-            id="userName"
-            name="Name"
-            class="user-input"
-            required
-          />
-          <span class="info"></span>
+    <main>
+      <form class="form">
+        <section id="form-one" class="pages">
+          <section class="pages-container">
+            <section class="form-input">
+              <section class="input-section">
+                <label for="userName">Name</label>
+                <input
+                  type="text"
+                  id="userName"
+                  name="Name"
+                  class="user-input"
+                  required
+                />
+              </section>
+              <section class="info-section">
+                <span class="info">info</span>
+              </section>
+            </section>
+            <section class="form-input">
+              <section class="input-section">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input
+                  type="date"
+                  id="dateOfBirth"
+                  name="Date-of-Birth"
+                  class="user-input"
+                  required
+                />
+              </section>
+              <section class="info-section">
+                <span class="info">info</span>
+              </section>
+            </section>
+            <section class="form-input">
+              <section class="input-section">
+                <span>Gender </span>
+                <section class="input-radio-section">
+                  <span class="radio-section">
+                    <label for="male">Male</label>
+                    <input
+                      type="radio"
+                      id="male"
+                      name="Gender"
+                      value="male"
+                      class="user-input"
+                      required
+                    />
+                  </span>
+                  <span class="radio-section">
+                    <label for="female">female</label>
+                    <input
+                      type="radio"
+                      id="female"
+                      name="Gender"
+                      value="female"
+                      class="user-input"
+                      required
+                    />
+                  </span>
+                </section>
+              </section>
+              <section class="info-section">
+                <span class="info">info</span>
+              </section>
+            </section>
+          </section>
         </section>
-        <section class="form-input">
-          <label for="dateOfBirth">Date of Birth</label>
-          <input
-            type="date"
-            id="dateOfBirth"
-            name="Date-of-Birth"
-            class="user-input"
-            required
-          />
-          <span class="info"></span>
+        <section id="form-two" class="pages">
+          <section class="pages-container">
+            <section class="form-input">
+              <section class="input-section">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="Email"
+                  id="email"
+                  class="user-input"
+                  required
+                />
+              </section>
+              <section class="info-section">
+                <span class="info">info</span>
+              </section>
+            </section>
+            <section class="form-input">
+              <section class="input-section">
+                <label for="phone">Phone</label>
+                <input
+                  type="number"
+                  name="Phone"
+                  id="phone"
+                  class="user-input"
+                  required
+                />
+              </section>
+              <section class="info-section">
+                <span class="info">info</span>
+              </section>
+            </section>
+            <section class="form-input">
+              <section class="input-section">
+                <label for="address">Address</label>
+                <input
+                  type="text"
+                  name="Address"
+                  id="address"
+                  class="user-input"
+                  required
+                />
+              </section>
+              <section class="info-section">
+                <span class="info">info</span>
+              </section>
+            </section>
+          </section>
         </section>
-        <section class="form-input">
-          <span>Gender :</span>
-          <label for="male">Male</label>
-          <input
-            type="radio"
-            id="male"
-            name="Gender"
-            value="male"
-            class="user-input"
-            required
-          />
-          <label for="female">female</label>
-          <input
-            type="radio"
-            id="female"
-            name="Gender"
-            value="female"
-            class="user-input"
-            required
-          />
-          <span class="info"></span>
+        <section class="pages">
+          <section class="pages-container">
+            <section class="summary-heading">
+              <h2 class="heading">Details Summary</h2>
+              <button id="edit" class="btn">Edit</button>
+            </section>
+            <section id="summary"></section>
+          </section>
         </section>
-      </section>
-      <section id="form-two" class="pages">
-        <section class="form-input">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            name="Email"
-            id="email"
-            class="user-input"
-            required
-          />
-          <span class="info"></span>
-        </section>
-        <section class="form-input">
-          <label for="phone">Phone</label>
-          <input
-            type="number"
-            name="Phone"
-            id="phone"
-            class="user-input"
-            required
-          />
-          <span class="info"></span>
-        </section>
-        <section class="form-input">
-          <label for="address">Address</label>
-          <input
-            type="text"
-            name="Address"
-            id="address"
-            class="user-input"
-            required
-          />
-          <span class="info"></span>
-        </section>
-      </section>
-      <section class="pages">
-        <button id="edit">Edit</button>
-        <section id="summary"></section>
-      </section>
+      </form>
       <section class="navigation-btns">
-        <input type="button" value="Back" id="back" />
-        <input type="button" value="Next" id="next" />
+        <input type="button" value="Back" id="back" class="btn" />
+        <input type="button" value="Next" id="next" class="btn" />
       </section>
-    </form>
+    </main>
   </body>
 </html>

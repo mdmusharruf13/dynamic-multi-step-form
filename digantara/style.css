@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 17px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  height: 100vh;
+}
+
+main {
+  height: 70%;
+  background-color: rgb(236, 233, 233);
+  width: 500px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pages {
+  width: 300px;
+}
+
+.pages-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-radio-section {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.info {
+  visibility: hidden;
+}
+
+.navigation-btns {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+input:not([type="radio"]) {
+  padding: 12px 8px;
+  border: 0px;
+  border-radius: 5px;
+}
+
+:is(input[type="button"], .btn) {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: rgb(16, 131, 213);
+  color: white;
+  border-width: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.summary-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-size: 24px;
+}
+
+table {
+  border: 1px;
+  width: 100%;
+  border-spacing: 0 8px;
+}
+
+th,
+td {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+}
